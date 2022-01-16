@@ -40,3 +40,8 @@ ___
 - At the end of the challenge please verbally summarize and explain everything you have done, and show your UI work if applicable.
 - Once you’ve completed the challenge, please email me a link to the video.
 - If you are having difficulties with the challenge, please email me for assistance.
+
+![Screen Shot 2022-01-15 at 18 05 22](https://user-images.githubusercontent.com/10134323/149643761-2bdbaff4-2a93-4f05-90c4-b1351ceaad56.png)
+
+![Screen Shot 2022-01-15 at 18 04 33](https://user-images.githubusercontent.com/10134323/149643766-987c0147-5f80-4b9b-8aa8-03b91e336820.png)
+
