@@ -7,6 +7,7 @@ import { create } from "react-test-renderer";
 import ConnectedNodes from "./Nodes";
 import Node from "../components/Node";
 import { checkNodesStatus } from "../reducers/nodes";
+import { initialState as blocksInitialState } from "../reducers/blocks";
 
 describe("<Nodes />", () => {
   const nodes = {
@@ -30,7 +31,10 @@ describe("<Nodes />", () => {
 
   function setup(): JSX.Element {
     const middlewares = [thunk];
-    store = configureMockStore(middlewares)({ nodes });
+    store = configureMockStore(middlewares)({
+      nodes,
+      blocks: blocksInitialState,
+    });
     return (
       <Provider store={store}>
         <ConnectedNodes />
