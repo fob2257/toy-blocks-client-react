@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import {
   Accordion,
@@ -8,9 +8,14 @@ import {
   Box,
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import colors from "../constants/colors";
+import { useDispatch } from "react-redux";
+
 import Status from "./Status";
+import Blocks from "../containers/Blocks";
+
+import colors from "../constants/colors";
 import { Node as NodeType } from "../types/Node";
+import { fetchNodeBlocks } from "../reducers/blocks";
 
 type Props = {
   node: NodeType;
@@ -60,6 +65,14 @@ const TypographySecondaryHeading = styled(Typography)(({ theme }) => ({
 }));
 
 const Node: React.FC<Props> = ({ node, expanded, toggleNodeExpanded }) => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (expanded) {
+      dispatch(fetchNodeBlocks(node));
+    }
+  }, [dispatch, expanded, node]);
+
   return (
     <AccordionRoot
       elevation={3}
@@ -80,7 +93,7 @@ const Node: React.FC<Props> = ({ node, expanded, toggleNodeExpanded }) => {
         </BoxSummaryContent>
       </AccordionSummaryContainer>
       <AccordionDetails>
-        <Typography>Blocks go here</Typography>
+        <Blocks />
       </AccordionDetails>
     </AccordionRoot>
   );
